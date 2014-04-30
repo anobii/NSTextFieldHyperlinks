@@ -114,11 +114,17 @@
 {
     // Font used for displaying and frame calculations must match
     NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithAttributedString:self.attributedStringValue];
-    NSFont *font = [attributedString attribute:NSFontAttributeName atIndex:0 effectiveRange:NULL];
-    
-    if (!font)
-        [attributedString addAttribute:NSFontAttributeName value:self.font range:NSMakeRange(0, [attributedString length])];
-    
+
+	if([attributedString length])
+	{
+		NSFont *	font = [attributedString attribute:NSFontAttributeName atIndex:0 effectiveRange:NULL];
+
+		if (!font)
+		{
+			[attributedString addAttribute:NSFontAttributeName value:self.font range:NSMakeRange(0, [attributedString length])];
+		}
+    }
+
     NSRect textViewFrame = [self.cell titleRectForBounds:self.bounds];
     NSTextView *textView = [[NSTextView alloc] initWithFrame:textViewFrame];
     [textView.textStorage setAttributedString:attributedString];
