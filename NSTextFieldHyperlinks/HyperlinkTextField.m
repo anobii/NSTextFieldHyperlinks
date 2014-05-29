@@ -136,6 +136,10 @@
 #pragma mark -
 #pragma mark Mouse Events
 
+- (void)mouseDown:(NSEvent *)theEvent
+{
+}
+
 - (void)mouseUp:(NSEvent *)theEvent
 {
     NSTextView *textView = self.textView;
